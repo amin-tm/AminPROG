@@ -5,13 +5,6 @@ export const HeroSection = () => {
         <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4">
             <div className="container max-w-8xl mx-auto text-center z-10">
                 <div className="space-y-8">
-                    {/* <h1 className="text-lg md:text-4xl font-black tracking-tight font-[Poppins]">
-                        <span className="opacity-0 animate-fade-in">Hi, I'm </span>
-                        <span className="text-primary opacity-0 animate-fade-in-delay-1">Amin </span>
-
-                        <span className="opacity-0 mr-2 animate-fade-in-delay-2"></span>
-
-                    </h1> */}
                     <h1 className="top-1 font-[IRANYekan] font-black text-4xl md:text-7xl">
                         <span className="opacity-0 animate-fade-in">ســـــلام، من </span>
                         <span className="text-primary opacity-0 animate-fade-in-delay-1">امیـــــــــــــــن</span>
@@ -21,7 +14,7 @@ export const HeroSection = () => {
                     </p>
 
                     <div className="opacity-0 animate-fade-in-delay-4 pt-4">
-                        <a href="#projects" className="cosmic-button font-[IRANYekan]">مشاهده پروژه‌ها</a>
+                        <a href="#projects" className="cosmic-button font-[IRANYekan]">مشاهده پروژه های من</a>
                     </div>
                 </div>
             </div>
