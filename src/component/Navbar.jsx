@@ -72,7 +72,7 @@ export const Navbar = () => {
                             {item.name}
                         </a>
                     ))}
-                    <button onClick={toggleTheme} className="fixed max-md:hidden left-5 top-4 z-50 p-2 rounded-full transition-colors duration-300 focus:outline-hidden">
+                    <button onClick={toggleTheme} className="max-md:hidden left-5 top-4 z-50 p-2 rounded-full transition-colors duration-300 focus:outline-hidden">
                         {isDarkMode ? (
                             <Sun className="h-5 w-5 text-yellow-300" />
                         ) : (
@@ -83,9 +83,18 @@ export const Navbar = () => {
                 {/* end of desktop navbar */}
 
                 {/* mobile navbar */}
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-foreground p-2 z-50" aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}>
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="flex items-center gap-6">
+                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-foreground p-2 z-50" aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}>
+                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                    <button onClick={toggleTheme} className="md:hidden z-50 p-2 rounded-full transition-colors duration-300 focus:outline-hidden">
+                        {isDarkMode ? (
+                            <Sun className="h-5 w-5 text-yellow-300" />
+                        ) : (
+                            <Moon className="h-5 w-5 text-blue-900" />
+                        )}
+                    </button>
+                </div>
                 <div className={cn(
                     "fixed inset-0 bg-background/5 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden",
                     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
