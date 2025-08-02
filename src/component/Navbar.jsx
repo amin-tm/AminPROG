@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils.js"
-import { X, Menu } from "lucide-react"
+import { X, Menu } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle"
 
 
 const navItems = [
@@ -56,7 +57,8 @@ export const Navbar = () => {
                     "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden",
                     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
                 )}>
-                    <div className="flex flex-col space-y-8 text-xl">
+                    <ThemeToggle className="fixed z-60 top-4 left-1/2 md:hidden flex flex-col items-center justify-center transition-all duration-300" />
+                    <div className="flex flex-col space-y-8 text-xl ">
                         {navItems.map((item, key) => (
                             <a key={key}
                                 href={item.href}
