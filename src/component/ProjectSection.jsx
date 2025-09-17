@@ -7,7 +7,7 @@ const projects = [
         description: 'این پروژه تست بررسی قابلیت های تایپ است.',
         image: '/files/images/1.png',
         tags: ['تایپ', 'JavaScript', 'پروژه', 'Css'],
-        demoUrl: '#',
+        demoUrl: 'TypeProject',
         githubUrl: '#'
     },
     {
