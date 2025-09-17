@@ -1,5 +1,7 @@
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
 
+import { TypeProject } from '../pages/TestProject'
+
 const projects = [
     {
         id: 1,
@@ -7,7 +9,7 @@ const projects = [
         description: 'این پروژه تست بررسی قابلیت های تایپ است.',
         image: '/files/images/1.png',
         tags: ['تایپ', 'JavaScript', 'پروژه', 'Css'],
-        demoUrl: 'TypeProject',
+        demoUrl: TypeProject,
         githubUrl: '#'
     },
     {
