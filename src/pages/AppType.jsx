@@ -194,27 +194,27 @@ export default function AppType() {
 
                             <span className='text-xs text-center mb-5 bg-primary rounded-full p-2 text-text-foreground'>Be careful about the number of mistakes you make.</span>
 
-                            <div className='flex items-center p-3 space-x-4 justify-center'>
+                            <div className='grid grid-cols-1 md:grid-cols-3 gap-3 items-center p-3 space-x-4 justify-center'>
 
                                 {!isActive && (
-                                    <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed tranition-all rounded-lg' onClick={startTest} disabled={isDisable}><Play className='h-5 w-5' />Start Test</button>
+                                    <button className='cosmic-button flex items-center w-full justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed tranition-all rounded-lg' onClick={startTest} disabled={isDisable}><Play className='h-4 w-4 md:h-5 md:w-5' />Start Test</button>
                                 )}
                                 {isActive && (
-                                    <button className='cosmic-button flex items-center justify-center gap-2 rounded-lg' onClick={stopTest}><Pause className='h-5 w-5 tranition-all' />Stop Test</button>
+                                    <button className='cosmic-button flex items-center w-full justify-center gap-2 rounded-lg' onClick={stopTest}><Pause className='h-4 w-4 md:h-5 md:w-5 tranition-all' />Stop Test</button>
                                 )}
 
-                                <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed rounded-lg' onClick={refreshQuote} disabled={isDisable || !isFetched || isEnableLvl2}>
+                                <button className='cosmic-button flex items-center justify-center w-full gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed rounded-lg' onClick={refreshQuote} disabled={isDisable || !isFetched || isEnableLvl2}>
                                     {!isFetched && (
-                                        <LoaderCircle className='h-5 w-5' style={!isFetched ? { display: "inline-block", animation: "spin 1s linear infinite" } : {}} />
+                                        <LoaderCircle className='h-4 w-4 md:h-5 md:w-5' style={!isFetched ? { display: "inline-block", animation: "spin 1s linear infinite" } : {}} />
                                     )}
                                     {isFetched && (
-                                        <RotateCw className='h-5 w-5' />
+                                        <RotateCw className='h-4 w-4 md:h-5 md:w-5' />
                                     )}
                                     Refresh Quote
                                 </button>
 
                                 <div onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)} className='transition-all transition-colors relative inline-block'>
-                                    <button className='cosmic-button flex items-center justify-center gap-2 rounded-lg disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed' disabled={!isLvl2 || isEnableLvl2} onClick={refreshQuoteLvl}>
+                                    <button className='cosmic-button flex items-center block w-full justify-center gap-2 rounded-lg disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed' disabled={!isLvl2 || isEnableLvl2} onClick={refreshQuoteLvl}>
                                         {!isFetchedLvl && (
                                             <LoaderCircle className='h-5 w-5' style={!isFetchedLvl ? { display: "inline-block", animation: "spin 1s linear infinite" } : {}} />
                                         )}
