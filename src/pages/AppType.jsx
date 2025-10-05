@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Play, RotateCw, ClipboardCheck, Gauge, Timer, CircleX, Pause, ClipboardPen, ArrowBigUpDash, Brain, Plus, FlagTriangleRight, LoaderCircle, ArrowRight } from "lucide-react"
 
-function AppType() {
+export default function AppType() {
     const [quote, setQuote] = useState("");
     const [userInput, setUserInput] = useState("");
     const [time, setTime] = useState(60);
@@ -273,4 +273,4 @@ function AppType() {
     )
 }
 
-export default AppType
+
