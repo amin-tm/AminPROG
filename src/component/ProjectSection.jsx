@@ -1,6 +1,8 @@
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
 
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
+
 
 const projects = [
     {
@@ -32,10 +34,10 @@ const projects = [
     },
 ]
 
-const navigate = useNavigate();
-const handleClick = () => {
-    navigate("/app-type")
-}
+// const navigate = useNavigate();
+// const handleClick = () => {
+//     navigate("/app-type")
+// }
 
 export const ProjectSection = () => {
     return (
@@ -70,12 +72,12 @@ export const ProjectSection = () => {
 
                             <div className="flex justify-end items-center mb-3 px-3 mt-8">
                                 <div className="flex space-x-3 text-left">
-                                    <a
-                                        onClick={handleClick()}
+                                    <Link
+                                        to={"/app-type"}
                                         target="_blank"
                                         className=" text-foreground/60 hover:text-primary transition-colors duration-300">
                                         <ExternalLink size={20} />
-                                    </a>
+                                    </Link>
                                     <a
                                         href={project.githubUrl}
                                         target="_blank"

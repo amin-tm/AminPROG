@@ -13,7 +13,41 @@ export default function AppType() {
     const [showTooltip, setShowTooltip] = useState(false);
     const [isLvl2, setIsLvl2] = useState(false);
     const [isFetchedLvl, setIsFetchedLvl] = useState(false);
+    const [isEnableLvl2, setIsEnableLvl2] = useState(false);
+
     const timerRef = useRef(null);
+
+
+    useEffect(() => {
+        document.documentElement.dir = "ltr";
+        document.documentElement.lang = "en";
+
+        return () => {
+            document.documentElement.dir = "rtl";
+            document.documentElement.lang = "fa";
+        };
+    }, []);
+
+    useEffect(() => {
+        const html = document.documentElement;
+
+        html.classList.add("scroll-smooth");
+        document.body.style.backgroundImage = "url(/background.jpg)";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center bottom";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.height = "100vh";
+
+        return () => {
+            html.classList.remove("scroll-smooth");
+            document.body.style.backgroundImage = "";
+            document.body.style.backgroundSize = "";
+            document.body.style.backgroundPosition = "";
+            document.body.style.backgroundRepeat = "";
+            document.body.style.height = "";
+        };
+    }, []);
+
 
     const fetchQuote = async () => {
 
@@ -28,6 +62,7 @@ export default function AppType() {
             setShowResult(false);
             setIsFetched(true);
             setIsFetchedLvl(true);
+            setIsEnableLvl2(true)
         } else if (data.quote.length < 40 && !isLvl2) {
             setQuote("Loading...");
             setQuote(data.quote.toLowerCase());
@@ -69,6 +104,7 @@ export default function AppType() {
         setIsFetchedLvl((prev) => !prev);
         fetchQuote();
         setIsDisable(false);
+        setIsEnableLvl2(true);
     }
 
     useEffect(() => {
@@ -120,7 +156,7 @@ export default function AppType() {
 
     return (
         <>
-            <div className='mx-auto max-w-sm sm:max-w-5xl md:-w-5xl lg:max-w-5xl xl:max-w-7xl'>
+            <div className='mx-auto max-w-sm sm:max-w-5xl md:-w-5xl lg:max-w-5xl xl:max-w-7xl font-[Geist] text-background'>
                 <div className='mt-10 rounded-xl p-5 shadow-lg mx-auto max-w-xl glass'>
                     <h1 className='text-4xl font-black'>TEST TYPE APP</h1>
                 </div>
@@ -156,18 +192,18 @@ export default function AppType() {
                             >
                             </textarea>
 
-                            <span className='text-xs text-center mb-5 bg-primary rounded-full p-1 text-text-foreground'>Be careful about the number of mistakes you make.</span>
+                            <span className='text-xs text-center mb-5 bg-primary rounded-full p-2 text-text-foreground'>Be careful about the number of mistakes you make.</span>
 
                             <div className='flex items-center p-3 space-x-4 justify-center'>
 
                                 {!isActive && (
-                                    <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed tranition-all' onClick={startTest} disabled={isDisable}><Play className='h-5 w-5' />Start Test</button>
+                                    <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed tranition-all rounded-lg' onClick={startTest} disabled={isDisable}><Play className='h-5 w-5' />Start Test</button>
                                 )}
                                 {isActive && (
-                                    <button className='cosmic-button flex items-center justify-center gap-2' onClick={stopTest}><Pause className='h-5 w-5 tranition-all' />Stop Test</button>
+                                    <button className='cosmic-button flex items-center justify-center gap-2 rounded-lg' onClick={stopTest}><Pause className='h-5 w-5 tranition-all' />Stop Test</button>
                                 )}
 
-                                <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed' onClick={refreshQuote} disabled={isDisable || !isFetched}>
+                                <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed rounded-lg' onClick={refreshQuote} disabled={isDisable || !isFetched || isEnableLvl2}>
                                     {!isFetched && (
                                         <LoaderCircle className='h-5 w-5' style={!isFetched ? { display: "inline-block", animation: "spin 1s linear infinite" } : {}} />
                                     )}
@@ -178,7 +214,7 @@ export default function AppType() {
                                 </button>
 
                                 <div onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)} className='transition-all transition-colors relative inline-block'>
-                                    <button className='cosmic-button flex items-center justify-center gap-2 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed' disabled={!isLvl2} onClick={refreshQuoteLvl}>
+                                    <button className='cosmic-button flex items-center justify-center gap-2 rounded-lg disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed' disabled={!isLvl2 || isEnableLvl2} onClick={refreshQuoteLvl}>
                                         {!isFetchedLvl && (
                                             <LoaderCircle className='h-5 w-5' style={!isFetchedLvl ? { display: "inline-block", animation: "spin 1s linear infinite" } : {}} />
                                         )}
@@ -189,7 +225,7 @@ export default function AppType() {
                                     </button>
 
                                     {showTooltip && (
-                                        <span className="absolute top-full mt-1 bg-black/30 text-white text-xs right-0/5 px-2 py-1 rounded-lg text-center" style={{ animation: "fade-in 0.5s linear" }}>
+                                        <span className="absolute top-full mt-1 bg-black/30 text-white text-xs right-0/5 px-2 py-1 rounded-lg text-center" style={{ animation: "fade-in 0.2s linear" }}>
                                             Complete this step within the allotted time to move on to the next step.
                                         </span>
                                     )}
@@ -222,7 +258,7 @@ export default function AppType() {
 
                         <h3 className='text-2xl font-bold'>What does this project do?</h3>
 
-                        <p className='text-md font-light text-justify mt-5 transition-transform duration-300'>This project is a one-minute typing test application. A random text is fetched online through an API and displayed to the user. The user’s task is to type the exact same text into the input box within the given time limit. While typing, every mistake is tracked in real time and the error count is displayed to the user. At the end of the test, the final results show both the accuracy and the total errors made.</p>
+                        <p className='text-md font-light text-justify mt-5 transition-transform duration-300 text-text-secondary'>This project is a one-minute typing test application. A random text is fetched online through an API and displayed to the user. The user’s task is to type the exact same text into the input box within the given time limit. While typing, every mistake is tracked in real time and the error count is displayed to the user. At the end of the test, the final results show both the accuracy and the total errors made.</p>
 
                         <h3 className='text-md font-bold mt-2 text-left'>Features that can be improved in the <span className='text-primary'>Future</span>:</h3>
 
