@@ -254,11 +254,11 @@ export default function AppType() {
                         </div>
                     </div>
 
-                    <div className='container mx-auto w-full col-span-1 mt-10 rounded-xl shadow-lg p-5 bg-white/30 backdrop-blur-3xl glass'>
+                    <div className='container mx-auto w-full mt-10 rounded-xl shadow-lg p-5 md:bg-white/30 md:backdrop-blur-3xl md:glass bg-text-secondary'>
 
-                        <h3 className='text-2xl font-bold'>What does this project do?</h3>
+                        <h3 className='md:text-2xl font-bold text-xl text-foreground md:text-text-secondary'>What does this project do?</h3>
 
-                        <p className='text-md font-light text-justify mt-5 transition-transform duration-300 text-text-secondary'>This project is a one-minute typing test application. A random text is fetched online through an API and displayed to the user. The user’s task is to type the exact same text into the input box within the given time limit. While typing, every mistake is tracked in real time and the error count is displayed to the user. At the end of the test, the final results show both the accuracy and the total errors made.</p>
+                        <p className='text-md font-light text-justify mt-5 transition-transform duration-300 md:text-text-secondary text-foreground'>This project is a one-minute typing test application. A random text is fetched online through an API and displayed to the user. The user’s task is to type the exact same text into the input box within the given time limit. While typing, every mistake is tracked in real time and the error count is displayed to the user. At the end of the test, the final results show both the accuracy and the total errors made.</p>
 
                         <h3 className='text-md font-bold mt-2 text-left'>Features that can be improved in the <span className='text-primary'>Future</span>:</h3>
 
