@@ -1,15 +1,15 @@
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
 
-import { TypeProject } from '../pages/TestProject'
+import { useNavigate } from "react-router-dom"
 
 const projects = [
     {
         id: 1,
-        title: 'پروژه تست تایپ',
-        description: 'این پروژه تست بررسی قابلیت های تایپ است.',
+        title: 'مینی پروژه تست تایپ',
+        description: 'این مینی پروژه تست بررسی قابلیت های تایپ است.',
         image: '/files/images/1.png',
         tags: ['تایپ', 'JavaScript', 'پروژه', 'Css'],
-        demoUrl: TypeProject,
+        demoUrl: "/about",
         githubUrl: '#'
     },
     {
@@ -31,6 +31,11 @@ const projects = [
         githubUrl: '#'
     },
 ]
+
+const navigate = useNavigate();
+const handleClick = () => {
+    navigate("/app-type")
+}
 
 export const ProjectSection = () => {
     return (
@@ -66,7 +71,7 @@ export const ProjectSection = () => {
                             <div className="flex justify-end items-center mb-3 px-3 mt-8">
                                 <div className="flex space-x-3 text-left">
                                     <a
-                                        href={project.demoUrl}
+                                        onClick={handleClick()}
                                         target="_blank"
                                         className=" text-foreground/60 hover:text-primary transition-colors duration-300">
                                         <ExternalLink size={20} />
