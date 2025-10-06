@@ -12,7 +12,7 @@ const projects = [
         image: '/files/images/1.png',
         tags: ['تایپ', 'JavaScript', 'پروژه', 'Css'],
         demoUrl: "/about",
-        githubUrl: '#'
+        githubUrl: 'https://github.com/amin-tm/Test-app.git'
     },
     {
         id: 2,

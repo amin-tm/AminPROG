@@ -288,7 +288,7 @@ export default function AppType() {
                 </div>
 
                 {showResult && (
-                    <div className='container col-span-2 mx-auto max-w-sm rounded-lg shadow-lg p-8 glass mt-8 transition-all'>
+                    <div className='container mx-auto max-w-sm rounded-lg shadow-lg p-8 md:glass mt-8 transition-all bg-text-secondary'>
                         <div className=' items-center justify-center'>
                             <h1 className='text-lg font-bold'>Result</h1>
                             <div className='flex items-center justify-center gap-3 mt-5'>
